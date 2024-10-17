@@ -106,11 +106,11 @@ def main():
 
         # Spawn strawberries every second
         current_time = pygame.time.get_ticks()
-        if (current_time - start_time) // 1000 > 0 and (current_time // 1000) % 1 == 0:
-            if random.randint(0, 10) < 2:  # Adjust to control spawn rate
+        if (current_time - start_time) // 1000 > 0 and (current_time // 1000) % 2 == 0:
+            if random.randint(0, 20) < 2:  # Reduced spawn rate
                 x = random.randint(0, SCREEN_WIDTH - 40)
                 y = random.randint(0, SCREEN_HEIGHT - 40)
-                speed = random.choice([-5, 5]), random.choice([-5, 5])
+                speed = random.choice([-3, 3]), random.choice([-3, 3])  # Reduced speed
                 strawberry = BouncingSprite(strawberry_image, (x, y), speed)
                 strawberry_group.add(strawberry)
 
@@ -118,7 +118,7 @@ def main():
         if (current_time - start_time) >= 3000 and not squirrel_group:
             x = random.randint(0, SCREEN_WIDTH - 40)
             y = random.randint(0, SCREEN_HEIGHT - 40)
-            speed = random.choice([-5, 5]), random.choice([-5, 5])
+            speed = random.choice([-3, 3]), random.choice([-3, 3])  # Reduced speed
             squirrel = BouncingSprite(squirrel_image, (x, y), speed)
             squirrel_group.add(squirrel)
 
